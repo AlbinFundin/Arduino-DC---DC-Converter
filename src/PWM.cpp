@@ -1,9 +1,10 @@
 #include <PWM.h>
 
+#define TOP_VALUE 0X07FF;
+#define PRESCALE 1;
 constexpr float PWM_FREQUENCY = 60e3; //PWM KHz
 constexpr uint16_t PERIOD = round(F_CPU / PWM_FREQUENCY); 
 
-//Test
 
 PWM::PWM()
 {
@@ -29,3 +30,22 @@ DDRB  |= _BV(PB1);    // set pin as output
     ICR1   = PERIOD - 1;  // period
     OCR1A  = PERIOD / 1.1;  // duty cycle
 }
+
+void PWM::PWMDutySet(float DutyProcent)
+{
+    float Scale = DutyProcent/100; //Float procent scaling
+    OCR1A = ICR1*Scale;
+
+    //Port 9 
+    DDRB = B00000010;
+}
+
+float PWM::PWMFreqency()
+{
+    float CpuFreq = 16000;
+    uint16_t TOP = TOP_VALUE;
+    uint8_t N = PRESCALE;
+    float Frq = CpuFreq/(N*(1+TOP)); //Atmel 328p formula for PWM freqency(KHz)
+    return Frq;
+}
+
