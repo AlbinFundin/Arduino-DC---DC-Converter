@@ -2,7 +2,7 @@
 
 #define TOP_VALUE 0X07FF;
 #define PRESCALE 1;
-constexpr float PWM_FREQUENCY = 60e3; //PWM KHz
+constexpr float PWM_FREQUENCY = 60e3; //PWM 8~ kHz
 constexpr uint16_t PERIOD = round(F_CPU / PWM_FREQUENCY); 
 
 
@@ -46,6 +46,6 @@ float PWM::PWMFreqency()
     uint16_t TOP = TOP_VALUE;
     uint8_t N = PRESCALE;
     float Frq = CpuFreq/(N*(1+TOP)); //Atmel 328p formula for PWM freqency(KHz)
-    return Frq;
+    return Frq; 
 }
 

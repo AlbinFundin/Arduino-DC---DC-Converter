@@ -9,7 +9,7 @@ class PWM {
     PWM();
     ~PWM();
     void PWMSetup(); //Start function
-    void PWMDutySet(float DutyProcent); //Set PWM duty as procent and start on PIN 9
+    void PWMDutySet(float DutyProcent); //Set PWM duty as procent on PIN 9
     float PWMFreqency(); //Return PWM frequency
 
     private:
