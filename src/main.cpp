@@ -2,7 +2,7 @@
 #include <PWM.h>
 
 PWM PWMControl;
-float Duty = 0;
+float Duty = 100;
 
 void setup() {
   Serial.begin(9600);
@@ -12,6 +12,7 @@ void setup() {
 
 void loop() {
   Serial.println(Duty);
+
   /*
   PWMControl.PWMDutySet(Duty); 
   if(Duty < 100)
