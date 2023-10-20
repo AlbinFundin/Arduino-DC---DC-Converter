@@ -2,13 +2,15 @@
 #include <PWM.h>
 
 PWM PWMControl;
-float Duty = 100;
+float Duty = 100; 
 
 void setup() {
   Serial.begin(9600);
   PWMControl.PWMSetup();
   PWMControl.PWMDutySet(Duty);
 }
+
+//Test cases -> TODO
 
 void loop() {
   Serial.println(Duty);
