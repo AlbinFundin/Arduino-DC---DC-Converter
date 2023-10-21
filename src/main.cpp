@@ -7,7 +7,7 @@ float Duty = 100;
 void setup() {
   Serial.begin(9600);
   PWMControl.PWMSetup();
-  PWMControl.PWMDutySet(Duty);
+  PWMControl.PWMDutySet(Duty); 
 }
 
 //Test cases -> TODO
