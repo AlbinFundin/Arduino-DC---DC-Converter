@@ -4,6 +4,9 @@
 PWM PWMControl;
 float Duty = 100; 
 
+
+
+
 void setup() {
   Serial.begin(9600);
   PWMControl.PWMSetup();
